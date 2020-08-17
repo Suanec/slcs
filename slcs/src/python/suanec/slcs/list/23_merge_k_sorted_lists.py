@@ -3,7 +3,7 @@
 __author__ = 'enzhao'
 # Created by enzhao on 2020/8/17.
 
-from utils.list_utils import *
+from suanec.slcs.utils.list_utils import *
 # https://leetcode-cn.com/problems/merge-k-sorted-lists/
 class Solution(object):
     def mergeTwoLists(self, list1, list2):

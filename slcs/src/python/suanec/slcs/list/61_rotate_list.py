@@ -3,7 +3,7 @@
 __author__ = 'enzhao'
 # Created by enzhao on 2020/8/17.
 
-from utils.list_utils import *
+from suanec.slcs.utils.list_utils import *
 # https://leetcode-cn.com/problems/rotate-list/
 class Solution(object):
     def rotateRight(self, head, k):
