@@ -6,3 +6,8 @@ __author__ = 'enzhao'
 class Solution(object):
     def self_testing(self):
         pass
+
+if __name__ == '__main__':
+
+    s = Solution()
+    s.self_testing()
