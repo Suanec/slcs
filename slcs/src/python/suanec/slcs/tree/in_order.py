@@ -3,6 +3,7 @@
 __author__ = 'enzhao'
 # Created by enzhao on 2020/8/17.
 
+from suanec.slcs.utils.tree_utils import *
 
 class Solution(object):
     # # InOrderLoop(TreeNode *root)
