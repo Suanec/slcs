@@ -25,7 +25,7 @@ class stack(deque):
     def self_testing(self):
 
         s = stack()
-        s.push(5);s.push(3);s.push(4);s.push(5)
+        s.push(5);s.push(3);s.push(4);s.push(1)
         print s
         print s.pick()
         print s.pop()
@@ -51,10 +51,12 @@ class queue(deque):
 
     def self_testing(self):
         q = queue()
-        q.push(5);q.push(3);q.push(4);q.push(5)
-        # print q
-        # print q.pick();print q.pick(2)
-        # print q.get()
+        q.push(5);q.push(3);q.push(4);q.push(51)
+        print q
+        print q.pick()
+        print q.pick(2)
+        print q.get()
+        print q
 
 def initFullBinaryTree(source = []):
     if(len(source) < 0):
@@ -67,3 +69,6 @@ def initFullBinaryTree(source = []):
     while(not q.empty()):
         pass
 
+if __name__ == '__main__':
+    q = queue()
+    q.self_testing()
