@@ -2,6 +2,7 @@
 ##### Suanec LeetCode Stage
 
 - this project is a stage about suanec's leetcode code.
+- the name also referer to shi'li'chu'se （实力出色） means Excellent strength.
 - the primary level target is AC.
 - the middle level target is faster/graceful.
 - the senior level target is general tools.
