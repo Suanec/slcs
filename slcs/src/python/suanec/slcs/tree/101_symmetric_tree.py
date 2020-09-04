@@ -49,12 +49,61 @@ class Solution(object):
 
     def isSymmetricIteratively(self, root):
         pass
+
     def isSymmetricRecursively(self, root):
-        pass
+    # def isSymmetricRecursively1(self, root):
+        '''
+        Runtime: 24 ms, faster than 72.95% of Python online submissions for Symmetric Tree.
+        Memory Usage: 13.1 MB, less than 24.60% of Python online submissions for Symmetric Tree.
+        :param root:
+        :return:
+        '''
+        if(None == root):return True
+        return self.tree_symmetric(root.left, root.right)
+
+
+    def tree_symmetric(self, left_root, right_root):
+        if(None == left_root and None == right_root):
+            return True
+        elif(None == left_root or None == right_root):
+            return False
+        else:
+            if(left_root.val != right_root.val):
+                return False
+            else:
+                return self.tree_symmetric(left_root.left, right_root.right) and self.tree_symmetric(
+                    left_root.right, right_root.left
+                )
+
+    def pre_order_list(self, root):
+        res = []
+        if(None == root): return []
+        res.append(root.val)
+        res += self.middle_order_list(root.left)
+        res += self.middle_order_list(root.right)
+        return res
+
+    def middle_order_list(self, root):
+        res = []
+        if(None == root): return []
+        res += self.middle_order_list(root.left)
+        res.append(root.val)
+        res += self.middle_order_list(root.right)
+        return res
+
+    def middle_order_list_reverse(self, root):
+        res = []
+        if(None == root): return []
+        res += self.middle_order_list_reverse(root.right)
+        res.append(root.val)
+        res += self.middle_order_list_reverse(root.left)
+        return res
+
+    # def isSymmetricRecursively(self, root):
     def isSymmetricRecursively_time_limit_exceeded(self, root):
         root_depth = self.tree_depth(root)
         if(None == root):return True
-        middle_order_seq = self.middle_order_list(root, root_depth)
+        middle_order_seq = self.middle_order_list_full(root, root_depth)
         # print middle_order_seq
         middle_order_seq_reverse = list(reversed(middle_order_seq))
         is_symmetric_list = [
@@ -69,24 +118,33 @@ class Solution(object):
         sub_depth = max(self.tree_depth(root.left), self.tree_depth(root.right))
         return sub_depth + 1
 
-    def middle_order_list(self, root, tree_depth):
+    def middle_order_list_full(self, root, tree_depth):
         res = []
         null_value = "suanec"
         if(tree_depth < 1):
             return res
         if(None == root):
-            res = self.middle_order_list(None, tree_depth -1)
+            res = self.middle_order_list_full(None, tree_depth - 1)
             res.append(None)
-            res += self.middle_order_list(None, tree_depth -1)
+            res += self.middle_order_list_full(None, tree_depth - 1)
         else:
-            res = self.middle_order_list(root.left, tree_depth -1)
+            res = self.middle_order_list_full(root.left, tree_depth - 1)
             res.append(root.val)
-            res += self.middle_order_list(root.right, tree_depth -1)
+            res += self.middle_order_list_full(root.right, tree_depth - 1)
         return res
 
 
 
     def self_testing(self):
+        '''
+        True
+        False
+        True
+        False
+        False
+        False
+        :return:
+        '''
 
         root = TreeNode(1)
         root.left = TreeNode(2)
