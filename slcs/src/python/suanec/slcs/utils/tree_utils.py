@@ -80,6 +80,17 @@ def initFullBinaryTree(source ="[5,4,1,null,1,null,4,2,null,2,null]"):
         cur.right = cur_right_val
     return root
 
+def pre_print(root):
+    def pre_order(root):
+        res = []
+        if(None == root): return res
+        res.append(root.val)
+        res += pre_order(root.left)
+        res += pre_order(root.right)
+        return res
+    pre_order_seq = pre_order(root)
+    print pre_order_seq
+
 def middle_print(root):
     def middle_order(root):
         res = []
