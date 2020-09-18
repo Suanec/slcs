@@ -91,7 +91,7 @@ class Solution(object):
         :rtype: List[List[int]]
         """
         # return self.subset_with_dup_set(nums)
-        return self.subset_dp(nums)
+        return self.subsetsWithDup_from_discuss(nums)
 
     def subset_with_dup_set(self, nums):
         nums_distinct = list(set(nums))
