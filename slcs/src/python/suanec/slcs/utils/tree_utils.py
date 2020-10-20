@@ -61,7 +61,7 @@ class queue(deque):
 def initFullBinaryTree(source ="[5,4,1,null,1,null,4,2,null,2,null]"):
     _source = eval(source.replace("null", "None"))
     source_len = len(_source)
-    if(source_len < 0):
+    if(source_len < 1):
         return None
     root = TreeNode(_source[0])
     if(source_len % 2 == 0):
