@@ -77,6 +77,7 @@ class Solution(object):
         :rtype: str
         Runtime: 80 ms, faster than 98.01% of Python online submissions for Longest Palindromic Substring.
         Memory Usage: 13.5 MB, less than 86.16% of Python online submissions for Longest Palindromic Substring.
+        Runtime: 3ms in C++.
         class Solution {
             public:
                 string longestPalindrome(string s) {
