@@ -27,7 +27,14 @@ __author__ = 'enzhao'
 #### roadmap
 
 #### cnblogs
+- [Suanec](http://www.cnblogs.com/suanec/)
 
 ##### addition
 - all pr is welcome
 - all comments is welcome at https://www.cnblogs.com/suanec/p/11359349.html
+
+#### Nickname
+- sheng'lan'ci（昇澜辞）
+- san'lun'che （三轮车）
+- shi'lang'ce （弑狼册）
+- sheng'long'chi （升龙尺/升龙池）
