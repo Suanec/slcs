@@ -51,7 +51,30 @@ class KthLargest(object):
     It is guaranteed that there will be at least k elements in the array when you search for the kth element.
     """
 
+    """
+    Runtime: 92 ms, faster than 90.06% of Python online submissions for Kth Largest Element in a Stream.
+    Memory Usage: 17.6 MB, less than 92.61% of Python online submissions for Kth Largest Element in a Stream.
+    """
     def __init__(self, k, nums):
+        self.pool = nums
+        self.k = k
+        heapq.heapify(self.pool)
+        while len(self.pool) > k:
+            heapq.heappop(self.pool)
+
+
+    def add(self, val):
+        if len(self.pool) < self.k:
+            heapq.heappush(self.pool, val)
+        elif val > self.pool[0]:
+            heapq.heapreplace(self.pool, val)
+        return self.pool[0]
+
+    """
+    Runtime: 100 ms, faster than 65.91% of Python online submissions for Kth Largest Element in a Stream.
+    Memory Usage: 17.9 MB, less than 25.00% of Python online submissions for Kth Largest Element in a Stream.
+    """
+    def __init_self__(self, k, nums):
         """
         :type k: int
         :type nums: List[int]
@@ -63,10 +86,8 @@ class KthLargest(object):
             if(len(self.inner_heap) > k):
                 heapq.heappop(self.inner_heap)
 
-    def add(self, val):
+    def add_self(self, val):
         """
-        Runtime: 100 ms, faster than 65.91% of Python online submissions for Kth Largest Element in a Stream.
-        Memory Usage: 17.9 MB, less than 25.00% of Python online submissions for Kth Largest Element in a Stream.
         :type val: int
         :rtype: int
         """
