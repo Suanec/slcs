@@ -142,6 +142,7 @@ class Solution(object):
         
         """
         if(point_1 == -1):
+            # ensure nums1 is started list
             len_nums1, len_nums2, nums1, nums2 = len_nums2, len_nums1, nums2, nums1
             point_1, point_2 = point_2, point_1
 
