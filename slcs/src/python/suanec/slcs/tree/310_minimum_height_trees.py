@@ -197,8 +197,41 @@ class Solution(object):
         # Runtime : 104ms
 
     def findMinHeightTrees(self, n, edges):
-        return self.findMinHeightTrees_discuss(n, edges)
+        return self.findMinHeightTrees_self(n, edges)
+        # return self.findMinHeightTrees_discuss(n, edges)
         # return self.findMinHeightTrees_construct(n, edges)
+
+    def findMinHeightTrees_self(self, n, edges):
+        """
+        Runtime: 184 ms, faster than 99.64% of Python online submissions for Minimum Height Trees.
+        Memory Usage: 19 MB, less than 64.49% of Python online submissions for Minimum Height Trees.
+        :param n:
+        :param edges:
+        :return:
+        """
+        if(n == 1):
+            return [0]
+        if(n == 2):
+            return [0,1]
+
+        self.edges_memo = [set() for x in xrange(n)]
+        for (i,j) in edges:
+            self.edges_memo[i].add(j)
+            self.edges_memo[j].add(i)
+
+        leaves = [ x for x in xrange(0,n) if 1 == len(self.edges_memo[x]) ]
+
+        inner_n = n
+        while inner_n > 2:
+            inner_n -= len(leaves)
+            new_leaves = []
+            for i in leaves:
+                j = self.edges_memo[i].pop()
+                self.edges_memo[j].remove(i)
+                if(len(self.edges_memo[j]) == 1):
+                    new_leaves.append(j)
+            leaves = new_leaves
+        return leaves
 
     def findMinHeightTrees_construct(self, n, edges):
         """
