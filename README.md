@@ -38,3 +38,21 @@ __author__ = 'enzhao'
 - san'lun'che （三轮车）
 - shi'lang'ce （弑狼册）
 - sheng'long'chi （升龙尺/升龙池）
+
+#### File agreement
+- demo : 92_reverse_linked_list_ii.py
+- means: ${leetcode_problem_number}_{leetcode_problem_url_name}.${code_launguage_format}
+
+#### Content agreement
+- demo : https://github.com/Suanec/slcs/blob/master/slcs/src/python/suanec/slcs/list/92_reverse_linked_list_ii.py
+- means:
+```
+${FILE_HEADER_FROM_LAUNGUAGE_OR_IDE}
+${PREDEFINED_INFO}
+${LEETCODE_HEADER}
+${LEETCODE_PROBLEM_DESCRIPTION}
+${PROBLEM_FUNCTION_HEADER}
+${AC_RESULT_PERFORMANCE}
+${SELF_TESTING_DIY}
+${OTHERS}
+```
