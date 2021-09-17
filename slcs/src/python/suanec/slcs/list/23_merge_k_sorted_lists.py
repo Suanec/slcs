@@ -116,11 +116,21 @@ class Solution(object):
         print(sorted([1,4,9,2,3]))
         lists = [initList(x) for x in [[1,4,5],[1,3,4],[2,6]]]
         printList(self.mergeKLists(lists))
-        def wrapper():
+        def wrapper_mergeKLists():
             lists = [initList(x) for x in [[1,4,5],[1,3,4],[2,6]]]
             self.mergeKLists(lists)
+        print(time_calc(wrapper_mergeKLists, 3800))
 
-        print(time_calc(wrapper, 30))
+        def wrapper_mergeKLists_sorted():
+            lists = [initList(x) for x in [[1,4,5],[1,3,4],[2,6]]]
+            self.mergeKLists_sorted(lists)
+        print(time_calc(wrapper_mergeKLists_sorted, 3800))
+
+        def wrapper_mergeKLists_list_by_list():
+            lists = [initList(x) for x in [[1,4,5],[1,3,4],[2,6]]]
+            self.mergeKLists_list_by_list(lists)
+        print(time_calc(wrapper_mergeKLists_list_by_list, 3800))
+
         lists = [initList(x) for x in [[1]]]
         printList(self.mergeKLists(lists))
         print(time_calc(self.mergeKLists, 10, lists))
