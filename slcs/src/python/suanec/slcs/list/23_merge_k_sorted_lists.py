@@ -168,7 +168,8 @@ class Solution(object):
         Runtime: 71 ms, faster than 99.70% of Python online submissions for Merge k Sorted Lists.
         Memory Usage: 21.9 MB, less than 44.52% of Python online submissions for Merge k Sorted Lists.
 
-
+        Runtime: 116 ms, faster than 50.89% of Python online submissions for Merge k Sorted Lists.
+        Memory Usage: 22 MB, less than 43.82% of Python online submissions for Merge k Sorted Lists.
         '''
         return self.mergeKLists_bucket_sort(lists)
 
