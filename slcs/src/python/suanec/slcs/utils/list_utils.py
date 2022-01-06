@@ -15,7 +15,7 @@ def initList(source = []):
     if(len(source) == 1 ): return ListNode(source[0])
     head = ListNode(source[0])
     p = head
-    for i in xrange(1,len(source)):
+    for i in range(1,len(source)):
         p.next = ListNode(source[i])
         p = p.next
     return head
@@ -23,6 +23,6 @@ def initList(source = []):
 def printList(head):
     p = head
     while(p != None):
-        print p.val
+        print(p.val)
         p = p.next
-    print '\n-\n'
+    print('\n-\n')

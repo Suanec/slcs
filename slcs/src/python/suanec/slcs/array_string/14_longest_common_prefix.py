@@ -50,7 +50,7 @@ class Solution(object):
         if(len(strs) < 1):
             return common_prefix
         min_length = min([len(input_str) for input_str in strs])
-        for i in xrange(0,min_length):
+        for i in range(0,min_length):
             char_set = set()
             [char_set.add(input_str[i]) for input_str in strs]
             if(len(char_set) == 1):

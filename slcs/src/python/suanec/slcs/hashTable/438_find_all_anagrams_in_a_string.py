@@ -68,13 +68,13 @@ class Solution(object):
         charset_p = {}
         charset_s = {}
         rst_list = []
-        for i in xrange(0, len_p):
+        for i in range(0, len_p):
             charset_p[p[i]] = charset_p.get(p[i], 0) + 1
             charset_s[s[i]] = charset_s.get(s[i], 0) + 1
         if(self.same_charset(charset_s, charset_p)):
             rst_list.append(0)
 
-        for idx in xrange(len_p, len_s):
+        for idx in range(len_p, len_s):
             s_start = s[idx - len_p]
             s_new = s[idx]
             s_start_count = charset_s[s_start] - 1

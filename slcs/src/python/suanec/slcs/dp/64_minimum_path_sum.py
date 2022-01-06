@@ -15,8 +15,8 @@ class Solution(object):
                 x for x in line
             ] for line in grid
         ]
-        for row in xrange(0,len(dp_matrix)):
-            for col in xrange(0,len(dp_matrix[row])):
+        for row in range(0,len(dp_matrix)):
+            for col in range(0,len(dp_matrix[row])):
                 if(row < 1):
                     if(col > 0):
                         dp_matrix[row][col] = dp_matrix[row][col-1] + dp_matrix[row][col]
@@ -35,4 +35,4 @@ class Solution(object):
             [4,2,1]
         ]
         s = Solution()
-        # print s.minPathSum(test_grit)
+        # print(s.minPathSum(test_grit))

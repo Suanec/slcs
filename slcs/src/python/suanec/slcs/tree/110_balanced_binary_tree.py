@@ -87,13 +87,13 @@ class Solution(object):
         return max(self.tree_height(root.left), self.tree_height(root.right)) + 1
 
     def self_testing(self):
-        print self.isBalanced_low_effi(initFullBinaryTree("[3,9,20,null,null,15,7]"))
-        print self.isBalanced_low_effi(initFullBinaryTree("[1,2,2,3,3,null,null,4,4]"))
-        print self.isBalanced_low_effi(initFullBinaryTree("[1,null,2,null,3]"))
-        print "---"
-        print self.isBalanced(initFullBinaryTree("[3,9,20,null,null,15,7]"))
-        print self.isBalanced(initFullBinaryTree("[1,2,2,3,3,null,null,4,4]"))
-        print self.isBalanced(initFullBinaryTree("[1,null,2,null,3]"))
+        print(self.isBalanced_low_effi(initFullBinaryTree("[3,9,20,null,null,15,7]")))
+        print(self.isBalanced_low_effi(initFullBinaryTree("[1,2,2,3,3,null,null,4,4]")))
+        print(self.isBalanced_low_effi(initFullBinaryTree("[1,null,2,null,3]")))
+        print("---")
+        print(self.isBalanced(initFullBinaryTree("[3,9,20,null,null,15,7]")))
+        print(self.isBalanced(initFullBinaryTree("[1,2,2,3,3,null,null,4,4]")))
+        print(self.isBalanced(initFullBinaryTree("[1,null,2,null,3]")))
         pass
 
 if __name__ == '__main__':

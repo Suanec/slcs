@@ -42,5 +42,5 @@ class Solution(object):
         s = Solution()
         # root = TreeNode(1)
         # root.left = TreeNode(2)
-        # print s.hasPathSum(root,22)
+        # print(s.hasPathSum(root,22))
 

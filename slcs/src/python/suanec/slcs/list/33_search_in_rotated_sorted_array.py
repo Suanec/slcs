@@ -61,17 +61,17 @@ class Solution(object):
 
     def self_testing(self):
         # Output: 4
-        print self.search(nums = [4,5,6,7,0,1,2], target = 0)
+        print(self.search(nums = [4,5,6,7,0,1,2], target = 0))
         # Output: -1
-        print self.search(nums = [4,5,6,7,0,1,2], target = 3)
+        print(self.search(nums = [4,5,6,7,0,1,2], target = 3))
         # Output: 1
-        print self.search(nums = [1,3], target = 3)
+        print(self.search(nums = [1,3], target = 3))
         # Output: 1
-        print self.search(nums = [3,1], target = 1)
+        print(self.search(nums = [3,1], target = 1))
         # Output: -1
-        print self.search(nums = [], target = 5)
+        print(self.search(nums = [], target = 5))
         # Output: 1
-        print self.search(nums = [5,1,2,3,4], target= 1)
+        print(self.search(nums = [5,1,2,3,4], target= 1))
 
 if __name__ == '__main__':
     Solution().self_testing()

@@ -55,7 +55,7 @@ class Solution(object):
         if(n == 2): return self.sub_generate_tree_2(value_list)
         if(n == 3): return self.sub_generate_tree_3(value_list)
         res = []
-        for i in xrange(0,n):
+        for i in range(0,n):
             left_part = value_list[:i]
             right_part = value_list[i+1:]
             left_tree_list = self.sub_generate_tree(left_part)

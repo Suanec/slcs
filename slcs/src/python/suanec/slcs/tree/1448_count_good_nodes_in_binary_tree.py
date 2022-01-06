@@ -98,16 +98,16 @@ class Solution(object):
         root.left.left = TreeNode(3)
         root.right.left = TreeNode(1)
         root.right.right = TreeNode(5)
-        print self.goodNodes(root=root)
+        print(self.goodNodes(root=root))
         root = TreeNode(3)
         root.left = TreeNode(3)
         root.left.left = TreeNode(4)
         root.left.right = TreeNode(2)
-        print self.goodNodes(root=root)
+        print(self.goodNodes(root=root))
         root = None
-        print self.goodNodes(root=root)
+        print(self.goodNodes(root=root))
         root = TreeNode(3)
-        print self.goodNodes(root=root)
+        print(self.goodNodes(root=root))
         pass
 
 if __name__ == '__main__':

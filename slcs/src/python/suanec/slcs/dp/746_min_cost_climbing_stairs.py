@@ -13,7 +13,7 @@ class Solution(object):
         if(len(cost) < 2):
             return 0
         rst = [i for i in cost]
-        for i in xrange(2, len(cost)):
+        for i in range(2, len(cost)):
             rst[i] += min(rst[i-1], rst[i-2])
         return min(rst[-1], rst[-2])
 
@@ -21,10 +21,10 @@ class Solution(object):
     def self_testing(self):
         cost = [10, 15, 20] # Output: 15
         s = Solution()
-        print s.minCostClimbingStairs(cost)
+        print(s.minCostClimbingStairs(cost))
         cost = [1, 100, 1, 1, 1, 100, 1, 1, 100, 1] # Output: 6
         s = Solution()
-        print s.minCostClimbingStairs(cost)
+        print(s.minCostClimbingStairs(cost))
 
 
 s = Solution()

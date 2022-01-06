@@ -130,7 +130,7 @@ class Solution(object):
         """
         pivot_idx = 0
 
-        for idx in xrange(0, max_idx):
+        for idx in range(0, max_idx):
             if(nums[idx] <= nums[max_idx]):
                 nums[idx], nums[pivot_idx] = nums[pivot_idx], nums[idx]
                 pivot_idx += 1

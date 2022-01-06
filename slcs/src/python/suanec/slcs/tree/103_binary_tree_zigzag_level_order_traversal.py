@@ -89,11 +89,11 @@ class Solution(object):
         root.right = TreeNode(20)
         root.right.left = TreeNode(15)
         root.right.right = TreeNode(7)
-        print self.zigzagLevelOrder(root=root)
+        print(self.zigzagLevelOrder(root=root))
         root = None
-        print self.zigzagLevelOrder(root=root)
+        print(self.zigzagLevelOrder(root=root))
         root = TreeNode(3)
-        print self.zigzagLevelOrder(root=root)
+        print(self.zigzagLevelOrder(root=root))
         pass
 
 if __name__ == '__main__':

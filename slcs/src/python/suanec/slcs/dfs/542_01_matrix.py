@@ -124,8 +124,8 @@ class Solution(object):
         ]
         row_cnt = len(matrix)
         col_cnt = len(matrix[0])
-        for row_idx in xrange(0,row_cnt):
-            for col_idx in xrange(0, col_cnt):
+        for row_idx in range(0,row_cnt):
+            for col_idx in range(0, col_cnt):
                 pre_row = row_idx -1 if(row_idx > 0) else 0
                 pre_col = col_idx -1 if(col_idx > 0) else 0
                 if(0 != rst_matrix[row_idx][col_idx]):
@@ -133,8 +133,8 @@ class Solution(object):
                         rst_matrix[row_idx][col_idx], rst_matrix[pre_row][col_idx] + 1, rst_matrix[row_idx][pre_col] + 1
                     )
 
-        for row_idx in xrange(row_cnt-1,-1,-1):
-            for col_idx in xrange(col_cnt-1,-1,-1):
+        for row_idx in range(row_cnt-1,-1,-1):
+            for col_idx in range(col_cnt-1,-1,-1):
                 pre_row = row_idx +1 if(row_idx < row_cnt-1) else row_cnt -1
                 pre_col = col_idx +1 if(col_idx < col_cnt-1) else col_cnt -1
                 if(0 != rst_matrix[row_idx][col_idx]):
@@ -145,14 +145,14 @@ class Solution(object):
         return rst_matrix
 
     def self_testing(self):
-        print self.updateMatrix([])
-        print self.updateMatrix([[],[],[]])
+        print(self.updateMatrix([]))
+        print(self.updateMatrix([[],[],[]]))
         # [[0,0,0], [0,1,0], [1,2,1]]
-        print self.updateMatrix([[0,0,0], [0,1,0], [1,1,1]])
+        print(self.updateMatrix([[0,0,0], [0,1,0], [1,1,1]]))
         # [[1,2,1],[0,1,0],[1,2,1]]
-        print self.updateMatrix([[1,1,1], [0,1,0], [1,1,1]])
+        print(self.updateMatrix([[1,1,1], [0,1,0], [1,1,1]]))
         # [[2,1,2],[1,0,1],[2,1,2]]
-        print self.updateMatrix([[1,1,1], [1,0,1], [1,1,1]])
+        print(self.updateMatrix([[1,1,1], [1,0,1], [1,1,1]]))
 
 if __name__ == '__main__':
     Solution().self_testing()

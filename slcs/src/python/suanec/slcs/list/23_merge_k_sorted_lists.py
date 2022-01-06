@@ -56,7 +56,7 @@ class Solution(object):
         if(len(lists) == 1):
             return lists[0]
         head = lists[0]
-        for i in xrange(1,len(lists)):
+        for i in range(1,len(lists)):
             head = self.mergeTwoLists(head, lists[i])
         return head
 
@@ -131,7 +131,7 @@ class Solution(object):
         pre_head = ListNode(-1)
         cur = pre_head
         for result_val in result_key:
-            for i in xrange(0, inner_bucket.get(result_val)):
+            for i in range(0, inner_bucket.get(result_val)):
                 cur.next = ListNode(result_val)
                 cur = cur.next
         return pre_head.next

@@ -160,7 +160,7 @@ class Solution(object):
         w = [7,3,1,7,4,1,2,8,5]
         w = [8,6,8,4,6,2,3,2,7,10,10]
         s = Solution(w)
-        for i in xrange(10000):
+        for i in range(10000):
             print(s.pickIndex())
 
 Solution([1]).self_testing()

@@ -45,14 +45,14 @@ class Solution(object):
         for characters in S:
             if(characters.isdigit()):
                 if(result):
-                    for idx in xrange(0,len(result)):
+                    for idx in range(0,len(result)):
                        result[idx] = result[idx] + characters
                 else:
                     result.append(characters)
             else:
                 rst = []
                 if(len(result) > 0):
-                    for idx in xrange(0,len(result)):
+                    for idx in range(0,len(result)):
                         rst.append(result[idx] + characters.upper())
                         result[idx] = result[idx] + characters.lower()
                 else:
@@ -62,10 +62,10 @@ class Solution(object):
         return result
 
     def self_testing(self):
-        print self.letterCasePermutation("a1b2")
-        print self.letterCasePermutation("3z4")
-        print self.letterCasePermutation("12345")
-        print self.letterCasePermutation("0")
+        print(self.letterCasePermutation("a1b2"))
+        print(self.letterCasePermutation("3z4"))
+        print(self.letterCasePermutation("12345"))
+        print(self.letterCasePermutation("0"))
 
 if __name__ == '__main__':
     s = Solution()

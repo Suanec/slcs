@@ -53,8 +53,8 @@ class Solution(object):
         dp_seq[4] = 14
         if(n < 5): return dp_seq[-1]
         dp_seq[0] = 1
-        for cur_max in xrange(5, n+1):
-            for root_value in xrange(1, cur_max + 1):
+        for cur_max in range(5, n+1):
+            for root_value in range(1, cur_max + 1):
                 dp_seq[cur_max] += dp_seq[root_value -1] * dp_seq[cur_max - root_value]
         return dp_seq[n]
 
@@ -68,7 +68,7 @@ class Solution(object):
         if(n < 1): return dp_seq[-1]
         dp_seq[1] = 1
         if(n < 2): return dp_seq[-1]
-        for root_value in xrange(1, n + 1):
+        for root_value in range(1, n + 1):
             left_part_sub = root_value - 1
             right_part_sub = n - root_value
             left_tree_count = self.numTrees(left_part_sub)
@@ -78,7 +78,7 @@ class Solution(object):
             dp_seq[n] += left_tree_count * right_tree_count
         return dp_seq[-1]
         # if(n < 2): return dp_seq[-1]
-        # for root_value in xrange(1, n + 1):
+        # for root_value in range(1, n + 1):
         #     left_part_sub = root_value - 1
         #     right_part_sub = n - root_value
         #     left_tree_count = dp_seq[left_part_sub] if(0 != dp_seq[left_part_sub]) else 1

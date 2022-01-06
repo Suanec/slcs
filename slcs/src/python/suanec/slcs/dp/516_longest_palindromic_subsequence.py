@@ -55,9 +55,9 @@ class Solution(object):
             return 1
         cur_dp = [0] * len_s
         pre_dp = [0] * len_s
-        for left in xrange(len_s -1 , -1, -1):
+        for left in range(len_s -1 , -1, -1):
             cur_dp[left] = 1
-            for right in xrange(left + 1, len_s):
+            for right in range(left + 1, len_s):
                 if(s[left] == s[right]):
                     cur_dp[right] = pre_dp[right -1] + 2
                 else:
@@ -96,11 +96,11 @@ class Solution(object):
         if(len_s < 2):
             return 1
         dp = []
-        for i in xrange(0,len_s):
+        for i in range(0,len_s):
             dp.append([0] * len_s)
-        for left in xrange(len_s -1, -1, -1):
+        for left in range(len_s -1, -1, -1):
             dp[left][left] = 1
-            for right in xrange(left + 1, len_s):
+            for right in range(left + 1, len_s):
                 if(s[left] == s[right]):
                     dp[left][right] = dp[left+1][right -1] + 2
                 else:

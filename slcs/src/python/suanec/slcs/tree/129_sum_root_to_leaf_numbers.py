@@ -39,14 +39,14 @@ class Solution(object):
         root = TreeNode(1)
         root.left = TreeNode(2)
         root.right = TreeNode(3)
-        print self.sumNumbers(root)
+        print(self.sumNumbers(root))
         # [4,9,0,5,1]
         root = TreeNode(4)
         root.left = TreeNode(9)
         root.right = TreeNode(0)
         root.left.left = TreeNode(5)
         root.left.right = TreeNode(1)
-        print self.sumNumbers(root)
+        print(self.sumNumbers(root))
 
 # https://leetcode-cn.com/problems/sum-root-to-leaf-numbers/
 
@@ -82,14 +82,14 @@ class Solution(object):
         root = TreeNode(1)
         root.left = TreeNode(2)
         root.right = TreeNode(3)
-        print self.sumNumbers(root)
+        print(self.sumNumbers(root))
         # [4,9,0,5,1]
         root = TreeNode(4)
         root.left = TreeNode(9)
         root.right = TreeNode(0)
         root.left.left = TreeNode(5)
         root.left.right = TreeNode(1)
-        print self.sumNumbers(root)
+        print(self.sumNumbers(root))
 
 
 if __name__ == '__main__':

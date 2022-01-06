@@ -26,11 +26,11 @@ class queue(deque):
     def self_testing(self):
         q = queue()
         q.push(5);q.push(3);q.push(4);q.push(51)
-        print q
-        print q.pick()
-        print q.pick(2)
-        print q.get()
-        print q
+        print(q)
+        print(q.pick())
+        print(q.pick(2))
+        print(q.get())
+        print(q)
 
 class Solution(object):
     '''

@@ -132,7 +132,7 @@ class ProductOfNumbers(object):
         if(self.memo_index_end == 0): # first call getProduct and without zero in list
             self.memo_index_start = memo_need_start
             self.memo_index_end = memo_need_end
-            for idx in xrange(self.memo_index_end -1, self.memo_index_start -1, -1):
+            for idx in range(self.memo_index_end -1, self.memo_index_start -1, -1):
                 cur_num = self.inner_list[idx]
                 self.indexed_product_memo[idx] = cur_num if(idx == self.memo_index_end -1) else cur_num * self.indexed_product_memo[idx + 1]
             return self.indexed_product_memo[memo_need_start]
@@ -141,7 +141,7 @@ class ProductOfNumbers(object):
                 if(memo_need_start >= self.memo_index_start): # cur k less than exist call getProduct k
                     return self.indexed_product_memo[memo_need_start]
                 else: # cur k larger than exist call getProduct k
-                    for idx in xrange(self.memo_index_start - 1 , memo_need_start -1, -1):
+                    for idx in range(self.memo_index_start - 1 , memo_need_start -1, -1):
                         cur_num = self.inner_list[idx]
                         self.indexed_product_memo[idx] = cur_num if(idx == self.memo_index_end -1) else cur_num * self.indexed_product_memo[idx + 1]
                     self.memo_index_start = memo_need_start
@@ -151,7 +151,7 @@ class ProductOfNumbers(object):
 
                 self.memo_index_start = memo_need_start
                 self.memo_index_end = memo_need_end
-                for idx in xrange(self.memo_index_end -1, self.memo_index_start -1, -1):
+                for idx in range(self.memo_index_end -1, self.memo_index_start -1, -1):
                     cur_num = self.inner_list[idx]
                     self.indexed_product_memo[idx] = cur_num if(idx == self.memo_index_end -1) else cur_num * self.indexed_product_memo[idx + 1]
                 return self.indexed_product_memo[memo_need_start]
@@ -173,7 +173,7 @@ class ProductOfNumbers(object):
         """
         rst = 1
         start_idx = len(self.inner_list) -1
-        for idx in xrange(0, k):
+        for idx in range(0, k):
             rst *= self.inner_list[start_idx - idx]
         return rst
 

@@ -178,12 +178,12 @@ class Solution(object):
         :return:
         """
         if n == 1: return [0]
-        adj = [set() for _ in xrange(n)]
+        adj = [set() for _ in range(n)]
         for i, j in edges:
             adj[i].add(j)
             adj[j].add(i)
 
-        leaves = [i for i in xrange(n) if len(adj[i]) == 1]
+        leaves = [i for i in range(n) if len(adj[i]) == 1]
 
         while n > 2:
             n -= len(leaves)
@@ -214,12 +214,12 @@ class Solution(object):
         if(n == 2):
             return [0,1]
 
-        self.edges_memo = [set() for x in xrange(n)]
+        self.edges_memo = [set() for x in range(n)]
         for (i,j) in edges:
             self.edges_memo[i].add(j)
             self.edges_memo[j].add(i)
 
-        leaves = [ x for x in xrange(0,n) if 1 == len(self.edges_memo[x]) ]
+        leaves = [ x for x in range(0,n) if 1 == len(self.edges_memo[x]) ]
 
         inner_n = n
         while inner_n > 2:
@@ -259,7 +259,7 @@ class Solution(object):
         return list(self.construct_trees(n, edges))
 
     def construct_trees(self, n, edges):
-        for i in xrange(0, n):
+        for i in range(0, n):
             height = self.construct_tree(i, edges)
 
             self.height_root_memo[height] = self.height_root_memo.get(height, set())

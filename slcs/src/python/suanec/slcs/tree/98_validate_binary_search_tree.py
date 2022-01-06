@@ -66,8 +66,8 @@ class Solution(object):
             return False
 
     def self_testing(self):
-        print self.isValidBST(initFullBinaryTree("[5,1,4,null,null,3,6]"))
-        print self.isValidBST(initFullBinaryTree("[2,1,3]"))
+        print(self.isValidBST(initFullBinaryTree("[5,1,4,null,null,3,6]")))
+        print(self.isValidBST(initFullBinaryTree("[2,1,3]")))
 
 
 if __name__ == '__main__':

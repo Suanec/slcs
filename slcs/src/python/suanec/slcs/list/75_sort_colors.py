@@ -68,17 +68,17 @@ class Solution(object):
 
     def self_testing(self):
         # Output: [0,0,1,1,2,2]
-        print self.sortColors(nums= [0,0,0,0,0,0])
-        print self.sortColors(nums= [2,2,2,2,2,2])
-        print self.sortColors(nums= [2,0,2,1,1,0])
-        print self.sortColors(nums= [2,0,0,0,0,0])
-        print self.sortColors(nums= [1,0,0,0,0,0])
-        print self.sortColors(nums= [])
-        print self.sortColors(nums= [2, 1])
-        print self.sortColors(nums= [2, 0])
-        print self.sortColors(nums= [1, 0])
-        print self.sortColors(nums= [0, 1])
-        print self.sortColors(nums= [0, 0, 2])
+        print(self.sortColors(nums= [0,0,0,0,0,0]))
+        print(self.sortColors(nums= [2,2,2,2,2,2]))
+        print(self.sortColors(nums= [2,0,2,1,1,0]))
+        print(self.sortColors(nums= [2,0,0,0,0,0]))
+        print(self.sortColors(nums= [1,0,0,0,0,0]))
+        print(self.sortColors(nums= []))
+        print(self.sortColors(nums= [2, 1]))
+        print(self.sortColors(nums= [2, 0]))
+        print(self.sortColors(nums= [1, 0]))
+        print(self.sortColors(nums= [0, 1]))
+        print(self.sortColors(nums= [0, 0, 2]))
         pass
 
 if __name__ == '__main__':

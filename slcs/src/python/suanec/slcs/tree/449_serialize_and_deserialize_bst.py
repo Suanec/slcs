@@ -33,11 +33,11 @@ class queue(deque):
     def self_testing(self):
         q = queue()
         q.push(5);q.push(3);q.push(4);q.push(51)
-        print q
-        print q.pick()
-        print q.pick(2)
-        print q.get()
-        print q
+        print(q)
+        print(q.pick())
+        print(q.pick(2))
+        print(q.get())
+        print(q)
 
 class Codec:
     '''
@@ -93,7 +93,7 @@ class Codec:
         if(None == root):return "[]"
         level_order_seq = self.level_order_list_full(root, root_depth)
         return str(level_order_seq)
-        # print middle_order_seq
+        # print(middle_order_seq)
 
     def tree_depth(self, root):
         if(None == root):
@@ -141,7 +141,7 @@ class Codec:
             _source.append(None)
         q = queue()
         q.push(root)
-        for i in xrange(1,source_len,2):
+        for i in range(1,source_len,2):
             cur_left_val = None if(_source[i] == None) else TreeNode(_source[i])
             cur_right_val = None if(_source[i + 1] == None) else TreeNode(_source[i + 1])
             cur = q.get()
@@ -171,7 +171,7 @@ class Codec:
         # ans = deser.deserialize(tree)
         # return ans
         pre_print(self.initFullBinaryTree())
-        print self.serialize(self.initFullBinaryTree())
+        print(self.serialize(self.initFullBinaryTree()))
         pre_print(self.deserialize( self.serialize(self.initFullBinaryTree()) ))
         pre_print(self.deserialize( self.serialize(self.initFullBinaryTree('[]')) ))
 

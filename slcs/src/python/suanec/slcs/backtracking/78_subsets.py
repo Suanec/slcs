@@ -37,7 +37,7 @@ class Solution(object):
         """
         result = [[]]
         if(len(nums) < 1):return result
-        for idx in xrange(0, len(nums)):
+        for idx in range(0, len(nums)):
             cur = nums[idx]
             rst = []
             sub_rst = self.subsets(nums[idx + 1:])
@@ -76,7 +76,7 @@ class Solution(object):
 
     def self_testing(self):
         nums = [1,2,3]
-        print self.subsets(nums)
+        print(self.subsets(nums))
 
 if __name__ == '__main__':
     s = Solution()

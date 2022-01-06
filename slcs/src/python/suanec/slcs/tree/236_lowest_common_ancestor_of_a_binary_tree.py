@@ -99,5 +99,5 @@ class Solution(object):
         root.left.right.right = TreeNode(5)
         root.right.left = TreeNode(7)
         root.right.right = TreeNode(9)
-        print self.lowestCommonAncestor(root, root.left, root.right).__dict__.get("val")
-        print self.lowestCommonAncestor(root, root.left, root.left.right).__dict__.get("val")
+        print(self.lowestCommonAncestor(root, root.left, root.right).__dict__.get("val"))
+        print(self.lowestCommonAncestor(root, root.left, root.left.right).__dict__.get("val"))

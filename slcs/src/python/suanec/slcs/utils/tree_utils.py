@@ -27,10 +27,10 @@ class stack(deque):
 
         s = stack()
         s.push(5);s.push(3);s.push(4);s.push(1)
-        print s
-        print s.pick()
-        print s.pop()
-        print s
+        print(s)
+        print(s.pick())
+        print(s.pop())
+        print(s)
 
 class queue(deque):
     def push(self, x):
@@ -53,11 +53,11 @@ class queue(deque):
     def self_testing(self):
         q = queue()
         q.push(5);q.push(3);q.push(4);q.push(51)
-        print q
-        print q.pick()
-        print q.pick(2)
-        print q.get()
-        print q
+        print(q)
+        print(q.pick())
+        print(q.pick(2))
+        print(q.get())
+        print(q)
 
 def initFullBinaryTree(source ="[5,4,1,null,1,null,4,2,null,2,null]"):
     _source = eval(source.replace("null", "None"))
@@ -69,7 +69,7 @@ def initFullBinaryTree(source ="[5,4,1,null,1,null,4,2,null,2,null]"):
         _source.append(None)
     q = queue()
     q.push(root)
-    for i in xrange(1,source_len,2):
+    for i in range(1,source_len,2):
         cur_left_val = None if(_source[i] == None) else TreeNode(_source[i])
         cur_right_val = None if(_source[i + 1] == None) else TreeNode(_source[i + 1])
         cur = q.get()
@@ -90,7 +90,7 @@ def pre_print(root):
         res += pre_order(root.right)
         return res
     pre_order_seq = pre_order(root)
-    print pre_order_seq
+    print(pre_order_seq)
 
 def middle_print(root):
     def middle_order(root):
@@ -101,7 +101,7 @@ def middle_print(root):
         res += middle_order(root.right)
         return res
     middle_order_seq = middle_order(root)
-    print middle_order_seq
+    print(middle_order_seq)
 
 def level_print(root):
     def level_order(root):
@@ -118,7 +118,7 @@ def level_print(root):
                 q.push(cur.right)
         return res
     level_order_seq = level_order(root)
-    print level_order_seq
+    print(level_order_seq)
 
 if __name__ == '__main__':
     q = queue()

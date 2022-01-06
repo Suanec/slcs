@@ -51,4 +51,4 @@ class Solution(object):
         root.right = TreeNode(20)
         root.right.left = TreeNode(15)
         root.right.right = TreeNode(7)
-        print self.averageOfLevels(root)
+        print(self.averageOfLevels(root))

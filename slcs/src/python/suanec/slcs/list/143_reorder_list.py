@@ -62,7 +62,7 @@ class Solution(object):
         if(count % 2 != 0):
             half_tail_count += 1
         head_tail = head
-        for i in xrange(1, half_tail_count):
+        for i in range(1, half_tail_count):
             head_tail = head_tail.next
         tail_head = head_tail.next
         head_tail.next = None

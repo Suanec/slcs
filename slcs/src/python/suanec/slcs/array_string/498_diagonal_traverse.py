@@ -47,9 +47,9 @@ class Solution(object):
         :rtype: List[int]
         """
         rst_memo = {} # idx_sum : values righttop to leftbutton
-        for row_idx in xrange(0, len(mat)):
+        for row_idx in range(0, len(mat)):
             row = mat[row_idx]
-            for col_idx in xrange(0, len(row)):
+            for col_idx in range(0, len(row)):
                 elem = row[col_idx]
                 idx_sum = row_idx + col_idx
                 rst_stage = [elem] + rst_memo.get(idx_sum, []) if(0 == idx_sum % 2) else rst_memo.get(idx_sum, []) + [elem]

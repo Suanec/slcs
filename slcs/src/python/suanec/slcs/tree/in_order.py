@@ -46,7 +46,7 @@ class Solution(object):
         root.left = TreeNode(2)
         root.right = TreeNode(3)
         root.left.right = TreeNode(5)
-        print self.InOrderLoop(root=root)
+        print(self.InOrderLoop(root=root))
         root = TreeNode(5)
         root.left = TreeNode(4)
         root.right = TreeNode(8)
@@ -56,7 +56,7 @@ class Solution(object):
         root.right.left = TreeNode(13)
         root.right.right = TreeNode(4)
         root.right.right.right = TreeNode(1)
-        print self.InOrderLoop(root=root)
+        print(self.InOrderLoop(root=root))
 
 
 Solution().self_testing()

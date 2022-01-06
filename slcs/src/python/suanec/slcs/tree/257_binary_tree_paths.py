@@ -33,5 +33,5 @@ class Solution(object):
         root.right = TreeNode(3)
         root.left.right = TreeNode(5)
         s = Solution()
-        # print s.binaryTreePaths(root)
+        # print(s.binaryTreePaths(root))
 

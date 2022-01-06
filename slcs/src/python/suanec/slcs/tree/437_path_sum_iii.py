@@ -20,7 +20,7 @@ class Solution(object):
         path_sum = self.pathAndSum(root)
         # for x in path_sum:
         #     x[1].reverse()
-        print path_sum
+        print(path_sum)
 
         return len([x for x in path_sum if (x == sum)])
 
@@ -56,5 +56,5 @@ class Solution(object):
         root.left.right.right = TreeNode(1)
 
         root.right.right = TreeNode(11)
-        print self.pathSum(root, 8)
+        print(self.pathSum(root, 8))
 

@@ -121,7 +121,7 @@ class Solution(object):
         return results
 
     def self_testing(self):
-        print self.subsetsWithDup([1,2,2])
+        print(self.subsetsWithDup([1,2,2]))
 
 if __name__ == '__main__':
     s = Solution()

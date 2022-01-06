@@ -40,9 +40,9 @@ class Solution(object):
         return False
 
     def self_testing(self):
-        print self.search(nums = [2,5,6,0,0,1,2], target = 0)
-        print self.search( nums = [2,5,6,0,0,1,2], target = 3)
-        print self.search( nums = [1,1,3,1] , target=3)
+        print(self.search(nums = [2,5,6,0,0,1,2], target = 0))
+        print(self.search( nums = [2,5,6,0,0,1,2], target = 3))
+        print(self.search( nums = [1,1,3,1] , target=3))
 
 if __name__ == '__main__':
     Solution().self_testing()

@@ -12,10 +12,10 @@ class Solution(object):
         :rtype: List[ListNode]
         """
         if(root == None):
-            rst = [None for x in xrange(0,k)]
+            rst = [None for x in range(0,k)]
             return rst
         if(root.next == None):
-            rst = [None for x in xrange(0,k)]
+            rst = [None for x in range(0,k)]
             rst[0] = root
             return rst
         cur_tail = root
@@ -26,9 +26,9 @@ class Solution(object):
         cur_tail = root
         bucket_base = count / k
         bucket_buffer = count % k
-        rst = [None for x in xrange(0,k)]
+        rst = [None for x in range(0,k)]
         pre_tail = cur_tail
-        for i in xrange(0, bucket_buffer):
+        for i in range(0, bucket_buffer):
             # rst[i].append(cur_tail)
             rst[i] = cur_tail
             tmp_count = bucket_base
@@ -38,7 +38,7 @@ class Solution(object):
             pre_tail = cur_tail
             cur_tail = cur_tail.next
             pre_tail.next = None
-        for i in xrange(bucket_buffer,k):
+        for i in range(bucket_buffer,k):
             if(cur_tail):
                 # rst[i].append(cur_tail)
                 rst[i] = cur_tail

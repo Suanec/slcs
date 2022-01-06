@@ -46,8 +46,8 @@ class Solution(object):
         return  cur_depth
 
     def self_testing(self):
-        print self.minDepth(initFullBinaryTree("[3,9,20,null,null,15,7]"))
-        print self.minDepth(initFullBinaryTree("[1,2]"))
+        print(self.minDepth(initFullBinaryTree("[3,9,20,null,null,15,7]")))
+        print(self.minDepth(initFullBinaryTree("[1,2]")))
 
 if __name__ == '__main__':
 

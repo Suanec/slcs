@@ -46,7 +46,7 @@ class Solution(object):
             return False
         char_memo = {}
         value_key_memo = {}
-        for i in xrange(len(t)):
+        for i in range(len(t)):
             if(s[i] in char_memo):
                 if(char_memo[s[i]] != t[i]):
                     return False
