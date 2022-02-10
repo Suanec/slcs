@@ -661,6 +661,8 @@ class Solution(object):
                 p += 1
                 result += 1
             """
+            Runtime: 1989 ms, faster than 67.01% of Python online submissions for Reverse Pairs.
+            Memory Usage: 19.7 MB, less than 43.30% of Python online submissions for Reverse Pairs.
             more efficient:
             while(p <= right and nums[i] > 2 * nums[p]):
                 p += 1
