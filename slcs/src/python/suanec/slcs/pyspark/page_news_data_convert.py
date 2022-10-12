@@ -25,7 +25,7 @@ def split_page_data_into_news(_row):
   row_dict = _row.asDict()
   new_row_dict = row_dict.copy()
   news_id_list = row_dict.get("news_id", [])
-  news_id_dict = enumerate(news_id_list)
+  # news_id_dict = enumerate(news_id_list)
   len_news_id_list = len(news_id_list)
   for key in new_row_dict:
     if(not isinstance(new_row_dict[key], list)):
@@ -48,19 +48,19 @@ rst_df.select(["news_id", "c30029", "c109"])
 rst_df.show(truncate=0)
 df.select(["news_id", "c30029", "c109"]).show(truncate=0)
 
-another_ori_data = [('1665169202593967291 20221006A04XIL00', 2), 
-('1665169202593967291 20221006V04BES00', 1), 
+another_ori_data = [('1665337913209104082 20220812V07Z7R00', 2), 
+('1665338482707486556 20221009A083AD00', 1), 
 ('1665169202593967291 20221005A01SZH00', 0),
 ('1665169202593967291 20221006A07LHE00', 0), 
 ('1665169202593967291 20220727V0749U00', 0)]
 another_rdd = sc.parallelize(another_ori_data)
 another_df = spark.createDataFrame(another_rdd, ["key", "features"])
-another_df.show(truncate=0)
+another_df.show()
 # another_df.createOrReplaceTempView("another_df")
 # rst_df.createOrReplaceTempView("rst_df")
 # joined_df = spark.sql("select rst_df.*, another_df.* from rst_df left join another_df on another_df.key = concat_ws(' ', flow_id, news_id)")
 from pyspark.sql.functions import concat_ws
-# pre_join_rst_df = rst_df.withColumn("key", concat_ws(" ", rst_df.flow_id, rst_df.news_id))
+pre_join_rst_df = rst_df.withColumn("key", concat_ws(" ", rst_df.flow_id, rst_df.news_id))
 joined_df = pre_join_rst_df.join(another_df, another_df.key == concat_ws(" ", rst_df.flow_id, rst_df.news_id), "left")
 
 
@@ -71,6 +71,9 @@ def merge_news_per_page(_row1, _row2):
   for key in row1_dict.keys():
     right_value = row2_dict.get(key)
     left_value = row1_dict.get(key)
+    if("features" == key):
+      right_value = right_value if right_value else -2
+      left_value = left_value if left_value else -2
     if(isinstance(right_value, list)):
       if(not isinstance(left_value, list)):
         left_value = [left_value] + right_value
@@ -82,14 +85,65 @@ def merge_news_per_page(_row1, _row2):
       else:
         left_value = left_value + [right_value]
     row1_dict[key] = left_value
-  row1_dict['flow_id'] = row1_dict['flow_id'][0]
-  row1_dict['c30028'] = row1_dict['c30028'][0]
+  # row1_dict['flow_id'] = row1_dict['flow_id'][0]
+  # row1_dict['c30028'] = row1_dict['c30028'][0]
   return row1_dict
 
-joined_rst_df = joined_df.rdd.map(lambda x : [x.flow_id, x.asDict()]).reduceByKey(merge_news_per_page).map(lambda x : x[1]).toDF(sampleRatio=1.0).select(joined_df.schema.fieldNames()).drop("key")
+
+def merge_news_into_list(_row1, _row2):
+  # print(isinstance(_row1, list), isinstance(_row2, list))
+  if(isinstance(_row1, list) and isinstance(_row2, list)):
+    return _row1 + _row2 
+  elif(isinstance(_row1, list)):
+    _row1.append(_row2)
+    return _row1
+  elif(isinstance(_row2, list)):
+    _row2.append(_row1)
+    return _row2
+  else:
+    return [_row1, _row2]
+
+def merge_ordered_news_per_page(_news_row):
+  # print(_row1, _row2)
+  _row1 = None
+  _row2 = None
+  for _row2 in _news_row:
+    if(not _row1):
+      _row1 = _row2
+      continue
+    row1_dict = _row1
+    row2_dict = _row2
+    for key in row1_dict.keys():
+      right_value = row2_dict.get(key)
+      left_value = row1_dict.get(key)
+      if("features" == key):
+        right_value = right_value if right_value else -2
+        left_value = left_value if left_value else -2
+      if(isinstance(right_value, list)):
+        if(not isinstance(left_value, list)):
+          left_value = [left_value] + right_value
+        else:
+          left_value = left_value + right_value
+      if(not isinstance(right_value, list)):
+        if(not isinstance(left_value, list)):
+          left_value = [left_value] + [right_value]
+        else:
+          left_value = left_value + [right_value]
+      row1_dict[key] = left_value
+  # row1_dict['flow_id'] = row1_dict['flow_id'][0]
+  # row1_dict['c30028'] = row1_dict['c30028'][0]
+  return row1_dict
+
+# joined_df.where(joined_df.flow_id == '1665338482707486556').rdd.map(lambda x : [x.flow_id, x.asDict()]).reduceByKey(merge_news_per_page).map(lambda x : x[1]).toDF(sampleRatio=1.0)
+# joined_df.rdd.map(lambda x : [x.flow_id, x.asDict()]).reduceByKey(merge_news_per_page).map(lambda x : x[1]).toDF(sampleRatio=1.0)
+joined_rst_df = joined_df.rdd.map(lambda x : [x.flow_id, x.asDict()]).reduceByKey(merge_news_into_list).mapValues(lambda x : merge_ordered_news_per_page(sorted(x, key=lambda x : x.get("c30029") if (0 == x.get("c30029")) else 100 ))).map(lambda x : x[1]).toDF(sampleRatio=1.0).select(joined_df.schema.fieldNames()).drop("key")
+
+# joined_rst_df = joined_rst_df.select("features")
 
 
+# joined_df.where(joined_df.flow_id == '1665338482707486556').rdd.map(lambda x : [x.flow_id, x.asDict()])
 
+# joined_df.where(joined_df.flow_id == '1665338482707486556').rdd.map(lambda x : [x.flow_id, x.asDict()]).map(lambda x : [x[0], {"features" : x[1]["features"]}]).reduceByKey(merge_news_per_page).collect()
 
 
 
