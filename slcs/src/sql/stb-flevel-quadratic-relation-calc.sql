@@ -149,14 +149,4 @@ with st_bottom_base_sample_raw as (
     from vuid_stid_fanscnt_percent_table
 )
 -- select * from vuid_fans_atten_stid_count limit 10;
--- select count(1) from vuid_fans_atten_stid_count limit 10;
-select 
-hive2kafkajson(
-    material_json,
-    "material-index-super-offline",
-    "kfk01.c12.al.sina.com.cn:9110,kfk02.c12.al.sina.com.cn:9110,kfk03.c12.al.sina.com.cn:9110,kfk04.c12.al.sina.com.cn:9110,kfk05.c12.al.sina.com.cn:9110,kfk06.c12.al.sina.com.cn:9110,kfk07.c12.al.sina.com.cn:9110,kfk08.c12.al.sina.com.cn:9110,kfk09.c12.al.sina.com.cn:9110,kfk10.c12.al.sina.com.cn:9110,kfk11.c12.al.sina.com.cn:9110,kfk12.c12.al.sina.com.cn:9110,kfk13.c12.al.sina.com.cn:9110,kfk14.c12.al.sina.com.cn:9110,kfk15.c12.al.sina.com.cn:9110,kfk16.c12.al.sina.com.cn:9110,kfk17.c12.al.sina.com.cn:9110,kfk18.c12.al.sina.com.cn:9110",
-    true,
-    "wb_oprd_supertopic_algo",
-    "KVw2eKSU7YUiFe"
-)
-from vuid_fans_atten_stid_count;
+select count(1) from vuid_fans_atten_stid_count limit 10;
