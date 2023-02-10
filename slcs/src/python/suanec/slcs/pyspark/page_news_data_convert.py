@@ -107,6 +107,7 @@ def merge_ordered_news_per_page(_news_row):
   # print(_row1, _row2)
   _row1 = None
   _row2 = None
+  print([x.get("c30029") for x in _news_row])
   for _row2 in _news_row:
     if(not _row1):
       _row1 = _row2
@@ -136,7 +137,7 @@ def merge_ordered_news_per_page(_news_row):
 
 # joined_df.where(joined_df.flow_id == '1665338482707486556').rdd.map(lambda x : [x.flow_id, x.asDict()]).reduceByKey(merge_news_per_page).map(lambda x : x[1]).toDF(sampleRatio=1.0)
 # joined_df.rdd.map(lambda x : [x.flow_id, x.asDict()]).reduceByKey(merge_news_per_page).map(lambda x : x[1]).toDF(sampleRatio=1.0)
-joined_rst_df = joined_df.rdd.map(lambda x : [x.flow_id, x.asDict()]).reduceByKey(merge_news_into_list).mapValues(lambda x : merge_ordered_news_per_page(sorted(x, key=lambda x : x.get("c30029") if (0 == x.get("c30029")) else 100 ))).map(lambda x : x[1]).toDF(sampleRatio=1.0).select(joined_df.schema.fieldNames()).drop("key")
+joined_rst_df = joined_df.rdd.map(lambda x : [x.flow_id, x.asDict()]).reduceByKey(merge_news_into_list).mapValues(lambda x : merge_ordered_news_per_page(sorted(x, key=lambda xdict : xdict.get("c30029") if (0 != xdict.get("c30029")) else 100 ))).map(lambda x : x[1]).toDF(sampleRatio=1.0).select(joined_df.schema.fieldNames()).drop("key")
 
 # joined_rst_df = joined_rst_df.select("features")
 
