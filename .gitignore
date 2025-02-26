@@ -1,5 +1,7 @@
- maven
+# maven
 target/
+# specified
+slcs/src/python/suanec/slcs/plugin/leetcode/editor
 
 # eclipse ignore
 .settings/
